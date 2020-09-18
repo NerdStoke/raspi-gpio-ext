@@ -35,6 +35,7 @@ class Stepper_ROHS_28BYJ48():
             seq_step_cnt = 0
             move_step_count = 0
             while move_step_count <= num_steps:
+                print(move_step_count)
                 for pin_num in range(0,4):
                     cur_pin = self.pin_array[pin_num] # Get GPIO
                     if self.seq[seq_step_cnt][pin_num] != 0:

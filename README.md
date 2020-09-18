@@ -14,6 +14,6 @@ update to latest version
 
 #### Development:
 
-`git clone https://github.com/gamma-ray-burst/raspiGPIOext.git`  
+`git clone https://github.com/nerdstoke/raspiGPIOext.git`  
 `cd raspiGPIOext`  
 `python setup.py develop`  
