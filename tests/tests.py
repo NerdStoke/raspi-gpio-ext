@@ -1,1 +1,1 @@
-from raspiGPIOext.motors import Stepper
+from raspiGPIOext.motors import stepper
