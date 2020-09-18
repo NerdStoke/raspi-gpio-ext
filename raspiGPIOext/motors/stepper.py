@@ -20,11 +20,12 @@ class Stepper_ROHS_28BYJ48():
                     [0,0,1,1],
                     [0,0,0,1]]
 
-    def move_by_angle(self,angle=45,speed=1000,speed_func=None):
+    def move_by_angle(self,angle=45,speed=1,speed_func=None):
         if angle == 0:
             next
         else:
-            # 4096 steps is 360 degrees
+            # 512 steps is 360 degrees
+            # max speed if about half a revolution per second
             num_steps = int(4096.*(angle/360.))
             ### TODO: add in speed functions to control the variable rate of angle turns
             wait_time = speed/1000./num_steps
