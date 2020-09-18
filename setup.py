@@ -7,11 +7,11 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='raspi-gpio-ext',
-    url='https://github.com/nerdstoke/raspi-gpio-ext',
+    name='raspiGPIOext',
+    url='https://github.com/nerdstoke/raspiGPIOext',
     author='Thomas Cannon',
     author_email='nerdstoke@gmail.com',
-    packages=['raspi-gpio-ext'],
+    packages=['raspiGPIOext'],
     install_requires=['gpiozero>=1.5.1'],
     version='0.1',
     license='MIT',
