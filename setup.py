@@ -1,3 +1,4 @@
+import setuptools
 from setuptools import setup
 
 # read the contents of markdown README file
@@ -11,7 +12,7 @@ setup(
     url='https://github.com/nerdstoke/raspiGPIOext',
     author='Thomas Cannon',
     author_email='nerdstoke@gmail.com',
-    packages=['raspiGPIOext'],
+    packages=setuptools.find_packages(),
     install_requires=['gpiozero>=1.5.1'],
     version='0.1',
     license='MIT',
