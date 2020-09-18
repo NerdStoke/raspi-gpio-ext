@@ -24,23 +24,28 @@ class Stepper_ROHS_28BYJ48():
         if angle == 0:
             next
         else:
+            # 4096 steps is 360 degrees
+            num_steps = int(4096.*(angle/360.))
             ### TODO: add in speed functions to control the variable rate of angle turns
-            wait_time = speed/float(1000) if speed/float(1000) > 0.004 else 0.004
+            wait_time = speed/1000./num_steps
+            wait_time = wait_time if wait_time > 0.004 else 0.004
             step_dir = 1 if angle > 0 else -1
-            step_count = len(seq)
-            step_counter = 0
-            while True: # Start main loop
+            seq_step_cnt = len(self.seq)
+            seq_step_cnt = 0
+            move_step_count = 0
+            while move_step_count <= num_steps:
                 for pin_num in range(0,4):
                     cur_pin = self.pin_array[pin_num] # Get GPIO
-                    if seq[step_counter][pin_num]!=0:
+                    if self.seq[seq_step_cnt][pin_num] != 0:
                         cur_pin.on()
                     else:
                         cur_pin.off()
-                step_counter += step_dir
-                if (step_counter >= step_count):
-                    step_counter = 0
-                if (step_counter < 0):
-                    step_counter = step_count + step_dir
+                seq_step_cnt += step_dir
+                if (seq_step_cnt >= seq_step_cnt):
+                    seq_step_cnt = 0
+                if (seq_step_cnt < 0):
+                    seq_step_cnt = seq_step_cnt + step_dir
+                move_step_count += 1
                 time.sleep(wait_time) # Wait before moving on
 
     # Another Idea to move to a certain angle. (would need calibration before hand)
